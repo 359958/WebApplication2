@@ -1,0 +1,89 @@
+﻿@model IEnumerable<WebApplication2.Models.MovieDetailsdelete>
+@{
+    ViewBag.Title = "Booking";
+}
+
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+@*<link href="~/Content/Site.css" rel="stylesheet" type="text/css" />*@
+<link href="~/Content/Css/BookingPage/BOOKMYSHOOW.CSS" rel="stylesheet" />
+<link href="~/Content/Css/BookingPage/gridcss.css" rel="stylesheet" />
+<link href="~/Content/Css/Newuser.css" rel="stylesheet" />
+
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+<script src="~/Scripts/CommonJs.js"></script>
+
+
+<body>
+    <div>
+
+        @foreach (var item in Model)
+        {
+
+            <div class="_47ahp" data-test-selector="search-results">
+                <ul class="_1xPrW">
+                    <li class="_3_DSG _2CdYY">
+                        <article class="_3eK24">
+                                <div class="_3XNMI">
+                                    <a href="" aria-label="FlixGo – Online Movies, TV Shows &amp; Cinema HTML Template">
+                                        <div class="_2_3rp" style="padding-top:50.847457627118644%">
+                                            <div style="">
+                                                <img class="_1xvs1" src="@item.ImagePath" style="left: 0%;">
+                                            </div>
+                                        </div>
+                                    </a>
+                                </div>
+                                <div class="_2UtoE _2CdYY">
+                                    <div class="_343Ow _3OY-2">
+                                        <span class="_3Q47d">
+                                        </span><span role="button" class="_248WO"><bold><h4>@item.MovieName</h4></bold></span>
+
+                                    </div>
+                                </div>
+                            </section>
+
+                            <div class="_2Wxbo _2CdYY"></div><section class="_1hK8Y _2CdYY">
+                                <span class="Yo3B1 _2CdYY">
+                                    @item.ScreenName
+                                </span>
+                                <span>
+                                    Running Upto: <!-- -->@item.Upto
+                                </span>
+
+                            </section><section class="_2S8hh _2CdYY o8q0O">
+                                <div class="_1PDrA"><h4>Tickect Price</h4></div>
+                                <ul class="WRpY-">
+                                    <li class="_3NrRc">FirstClass: Rs.@item.FC  </li>
+                                    <li class="_3NrRc"> SecondClass: Rs.@item.SC</li>
+
+                                    <li class="_3NrRc">ThirdClass: Rs.@item.TC</li>
+                                    <li class="_3NrRc"><a href="javascript:void(0);" class="_3NrRc anchorDetail1" role="button" data-id="@item.MovieId" target="_blank">Check Avaliblity</a></li>
+                                </ul>
+                            </section>
+
+                            <section class="_2Cbnw o8q0O"><div role="button" class="_1PDrA"> </div></section>
+                            <section class="_2X1ag _2CdYY">
+                                <a href="javascript:void(0);" class="_3tfm8 _3Q7hy Pq41l lpgPF anchorDetail" role="button" data-id="@item.MovieId" target="_blank">Book Movie</a>
+                            </section>
+                        </article>
+                    </li>
+
+
+
+                </ul>
+            </div>
+        }
+
+
+    </div>
+
+    <div id='myModal' class='modal'>
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div id='myModalContent'></div>
+            </div>
+        </div>
+
+    </div>
+</body>

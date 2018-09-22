@@ -1,0 +1,157 @@
+﻿@model IEnumerable<WebApplication2.Models.movieDetailsList>
+@{
+    ViewBag.Title = "MovieInfo";
+    WebGrid webGrid = new WebGrid(source: Model, canPage: true, canSort: false);
+}
+
+<h2>MovieInfo</h2>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+
+    <link href="~/Content/Css/Movieinfo.css" rel="stylesheet" />
+   
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+
+    <div>
+
+        @webGrid.GetHtml(
+            htmlAttributes: new { @id = "WebGrid", @class = "Grid" },
+            columns: webGrid.Columns(
+           webGrid.Column(header: "Screen", format: @<span class="label" style="color:seagreen">@item.Screen</span>, style: "Screen"),
+                         webGrid.Column(header: "Movie", format: @<span class="label" style="color:seagreen">@item.Movie</span>, style: "Movie"),
+                                              webGrid.Column(header: "Date", format: @<span>
+                                                <span class="label" style="color:seagreen">@item.RunningUpto</span>
+                                                @*<input class="form-control" id="date" name="date" placeholder="MM/DD/YYY" type="text" />*@
+
+                                                <input class="text" type="text" id="date" name="date" placeholder="MM/DD/YYY" value="@item.RunningUpto" style="display:none" />
+                                            </span>, style: "Date"),
+
+                                                                                                                webGrid.Column(format:@<span class="link">
+                                                                                                                    <a class="Edit" href="javascript:;">Edit</a>
+                                                                                                                    <a class="Update" href="javascript:;" style="display:none">Update</a>
+                                                                                                                    <a class="Cancel" href="javascript:;" style="display:none">Cancel</a>
+                                                                                                                </span>),
+                                                                                                                                                 webGrid.Column(format:@<span class="link">
+                                                                                                                                                    <a class="Delete" href="javascript:;">Delete</a>
+
+                                                                                                                                                </span>)))
+    </div>
+
+
+    <script type="text/javascript">
+        //Edit event handler.
+        $("body").on("click", "#WebGrid TBODY .Edit", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    $(this).find(".text").show();
+                    $(this).find(".label").hide();
+                }
+            });
+            row.find(".Update").show();
+            row.find(".Cancel").show();
+            $(this).hide();
+        });
+
+        //Update event handler.
+        $("body").on("click", "#WebGrid TBODY .Update", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    var span = $(this).find(".label");
+                    var input = $(this).find(".text");
+                    span.html(input.val());
+                    span.show();
+                    input.hide();
+
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Cancel").hide();
+            $(this).hide();
+
+
+            var UpdateMovieData = {
+                Screen: row.find(".label").html(),
+                Movie: row.find(".Movie").find(".label").html(),
+                RunningUpto: row.find(".Date .label").html()
+
+            };
+            alert(UpdateMovieData.Movie);
+            alert(UpdateMovieData.RunningUpto);
+            if (UpdateMovieData != null) {
+                alert('ij');
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:60683/api/Admin/UpdateMovie",
+                    data: UpdateMovieData,
+                    success: function (data) {
+                        alert('Date Updated');
+                    },
+                    error: function (response) {
+                        alert('Error');
+                    }
+                });
+            }
+        });
+
+        //Cancel event handler.
+        $("body").on("click", "#WebGrid TBODY .Cancel", function () {
+            var row = $(this).closest("tr");
+            $("td", row).each(function () {
+                if ($(this).find(".text").length > 0) {
+                    var span = $(this).find(".label");
+                    var input = $(this).find(".text");
+                    input.val(span.html());
+                    span.show();
+                    input.hide();
+                }
+            });
+            row.find(".Edit").show();
+            row.find(".Update").hide();
+            $(this).hide();
+        });
+
+        $("body").on("click", "#WebGrid TBODY .Delete", function () {
+            var row = $(this).closest("tr");
+            var UpdateMovieData = {
+                Movie: row.find(".Movie").find(".label").html(),
+            }
+            alert(UpdateMovieData.Movie);
+            if (UpdateMovieData != null) {
+                alert('ij');
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost:60683/api/Admin/DeleteMovie",
+                    data: UpdateMovieData,
+                    success: function (data) {
+                        alert('deleted Updated');
+                    },
+                    error: function (response) {
+                        alert('Error');
+                    }
+                });
+            }
+            //$("td", row).each(function () {
+            //    if ($(this).find(".text").length > 0) {
+            //        var span = $(this).find(".label");
+            //        var input = $(this).find(".text");
+            //        input.val(span.html());
+            //        span.show();
+            //        input.hide();
+            //    }
+            //});
+            //row.find(".Edit").show();
+            //row.find(".Update").hide();
+            //$(this).hide();
+        });
+    </script>
+</body>
+</html>

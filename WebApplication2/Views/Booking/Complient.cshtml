@@ -1,0 +1,66 @@
+﻿@model WebApplication2.Models.ComplientStatus
+@{
+    ViewBag.Title = "Complient";
+}
+<link href="~/Content/Css/Complient/Complient.css" rel="stylesheet" />
+<link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />
+<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>
+
+<h4>Complient</h4>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <hr />
+        <div class="signup-form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*<form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">*@
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+                    
+                    <div class="col-xs-12">
+                        @*@Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.Issue, new { @class = "form-control" })*@
+                        <label>Query type</label>   @Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.IssueList, new { @class = "form-control" })
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-12"></label>
+                    <div class="col-xs-8">
+                        @Html.TextAreaFor(Model => Model.descriptiontext, new { @class = "form-control", columns = 40, rows = 10 })
+                    </div>
+                </div>
+                <div class="form-group  col-xs-12">
+                    <div>
+                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
+                    </div>
+                </div>
+                @*</form>*@
+            </div>
+            @*<div class="text-center">Already have an account? @Html.ActionLink("Login", "LoginPage", "Register")</div>*@
+        </div>
+    }
+</body>
+
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+        $(document).ready(function () {
+
+            alert('Posted Successfully');
+
+        });
+
+    </script>
+}
+

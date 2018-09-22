@@ -1,0 +1,127 @@
+﻿@model WebApplication2.Models.movieDetailsList
+@{
+    ViewBag.Title = "AddMovie";
+}
+
+<html>
+<head>
+
+    <link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />
+    <script src="~/Scripts/DatePicker/jquery.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+    <script src="~/Scripts/bootstrap.js"></script>
+    <script src="~/Scripts/DatePicker/bootstrap-datepicker.min.js"></script>
+    <link href="~/Content/Css/DatePicker/bootstrap-datepicker3.css" rel="stylesheet" />
+
+    <link href="~/Content/Css/AddMovie.css" rel="stylesheet" />
+    <script>
+        $(document).ready(function () {
+            alert();
+            DatePicker();
+
+            function DatePicker() {
+                var dateToday = new Date();
+                var date_input = $('input[placeholder="MM/DD/YYY"]'); //our date input has the name "date"
+                var container = $('.bootstrap-iso form').length > 0 ? $('.bootstrap-iso form').parent() : "body";
+                var options = {
+                    format: 'mm/dd/yyyy',
+                    container: container,
+                    todayHighlight: true,
+                    orientation: "bottom right",
+                    autoclose: true,
+                    minDate: dateToday
+                };
+                date_input.datepicker(options);
+            }
+           
+         
+        });
+
+
+    </script>
+</head>
+
+
+<h5>AddMovie</h5>
+
+<body>
+    @using (Html.BeginForm("AddMovie", "Admin",
+                        FormMethod.Post,
+                        new { enctype = "multipart/form-data" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="signup-form">
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            @*<form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">*@
+            <div class="form-horizontal">
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4">Screen Name</label>
+                    <div class="col-xs-8">
+                        @Html.DropDownList("Screen", (IEnumerable<SelectListItem>)ViewBag.ScreenList, new { @class = "form-control" })
+
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <label class="control-label col-xs-4">Movie Name</label>
+                    <div class="col-xs-8">
+                        @Html.TextBoxFor(Model => Model.Movie, new { @class = "form-control", columns = 40, rows = 10 })
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <!-- Date input -->
+                    <label class="control-label col-xs-4" for="date">Running From:</label>
+                    <div class="col-md-5">
+                        <input class="form-control col-lg-10" id="from" name="From" placeholder="MM/DD/YYY" type="text" />
+                    </div>
+                </div>
+
+
+                <div class="form-group">
+                    <!-- Date input -->
+                    <label class="control-label col-xs-4" for="date">Upto:</label>
+                    <div class="col-md-5">
+                        <input class="form-control" id="date" name="RunningUpto" placeholder="MM/DD/YYY" type="text" />
+                    </div>
+                </div>
+                <div>
+                    <label for="file" class="control-label col-xs-4">Upload Image:</label>
+                    <input type="file" name="UploadedFile" class="control-label col-xs-4" id="file" style="width: 100%;" />
+
+                </div>
+                <div class="form-group">
+                    <div class="col-xs-8 col-xs-offset-4">
+
+                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>   <button type="submit" class="btn btn-primary btn-sm">Clear</button>
+                    </div>
+
+                </div>
+
+
+
+            </div>
+
+        </div>
+    }
+
+  
+</body>
+</html>
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+        $(document).ready(function () {
+
+            alert(' Added Success');
+
+        });
+
+    </script>
+
+}

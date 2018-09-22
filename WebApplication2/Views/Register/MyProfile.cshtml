@@ -1,0 +1,80 @@
+﻿@model WebApplication2.Models.UserData
+@{
+    ViewBag.Title = "MyProfile";
+}
+<link href="~/Content/Css/Myprofile.css" rel="stylesheet" />
+<h5>MyProfile</h5>
+
+<body>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+        <div class="form-horizontal" align="center">
+
+            <hr />
+
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+            <div class="form-group">
+
+                <label class="control-label col-xs-4">Name</label>
+                <div class="col-xs-3">
+
+                    @Html.EditorFor(model => model.CName, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CName, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">Phone</label>
+                <div class="col-xs-3">
+
+                    @Html.EditorFor(model => model.CPhone, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.CPhone, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">New Password</label>
+                <div class="col-xs-3">
+                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "form-control" } })
+                    @*<input type="Password" class="form-control" id="Password" name="UserName" placeholder="Email Address">*@
+                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            @*<div class="form-group">
+                    <label class="control-label col-xs-4">Retype Password</label>
+                    <div class="col-xs-3">
+                        <input type="Password" class="form-control" id="Password" name="UserName">
+                    </div>
+                </div>*@
+
+
+            <div class="form-group">
+                <div class="col-xs-8 col-xs-offset-1">
+
+                    <button type="submit" class="btn btn-primary btn-sm">Save</button>  <button type="submit" class="btn btn-primary btn-sm">Clear</button>
+                </div>
+            </div>
+        </div>
+    }
+</body>
+
+
+@if (ViewBag.Message != null)
+{
+    <script>
+
+$(document).ready(function () {
+
+                    alert('Profile Update');
+
+                });
+
+    </script>
+
+}

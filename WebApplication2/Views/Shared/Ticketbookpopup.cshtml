@@ -1,0 +1,80 @@
+﻿@model WebApplication2.Models.MovieDetails
+@{
+    ViewBag.Title = "Ticketbookpopup";
+}
+
+<div>
+    <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+        <h4 class="modal-title" id="myModalLabel">Book your tickets</h4>
+    </div>
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+
+
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+        <div class="form-horizontal">
+            <div class="col-xs-8 col-xs-offset-5">
+                <br />
+                Movie:  @Html.DisplayFor(model => model.MovieName)
+            </div>
+
+            <div class="form-group">
+
+                @Html.HiddenFor(model => model.MovieID)
+
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">Show Class</label>
+                <div class="col-xs-8">
+                    @Html.DropDownList("ClassId", (IEnumerable<SelectListItem>)ViewBag.Classid, new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">Booking date</label>
+                <div class="col-xs-8">
+
+                    @Html.DropDownList("BookingDate", new SelectList(ViewBag.Date, "Value", "Text"), "Select Movie", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">Show Time</label>
+                <div class="col-xs-8">
+                    @Html.DropDownList("Showid", (IEnumerable<SelectListItem>)ViewBag.Showid, "-- Select Show--", new { @class = "form-control" })
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label class="control-label col-xs-4">Tickets</label>
+                <div class="col-xs-8">
+                    @Html.DropDownList("NoTickets", (IEnumerable<SelectListItem>)ViewBag.NoTickets, new { @class = "form-control" })
+                </div>
+            </div>
+
+
+        </div>
+
+        <div class="modal-body">
+
+            <button type="submit" class="btn btn-primary">Book Tickets</button> <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+    }
+
+</div>
+        </div>
+    </div>
+
+    </div>
