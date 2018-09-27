@@ -69,15 +69,20 @@ namespace WebApplication2.Models
 
     public class Showdates
     {
-        public DateTime AllDays { get; set; }
+        public string AllDays { get; set; }
     }
 
     public class movieDetailsList
     {
+        [Required(ErrorMessage ="Select Screen")]
         public string Screen { get; set; }
+        [Required(ErrorMessage = "Enter Movie Name")]
         public string Movie { get; set; }
+        [Required(ErrorMessage = "Enter End date")]
         public DateTime RunningUpto { get; set; }
+        [Required(ErrorMessage = "Enter from date")]
         public DateTime From { get; set; }
+        [Required(ErrorMessage = "Image source")]
         public string path { get; set; }
 
     }
@@ -85,9 +90,13 @@ namespace WebApplication2.Models
     public class BookMovie
     {
         public string Movieid { get; set; }
+        [Required(ErrorMessage = "Movie Class is required.")]
         public string Classid { get; set; }
+        [Required(ErrorMessage = "Show is required.")]
         public string Showid { get; set; }
+        [Required(ErrorMessage = "Date is required.")]
         public string BookingDate { get; set; }
+        [Required(ErrorMessage = "No of is required.")]
         public int NoTickets { get; set; }
         public int CUSTOMERID { get; set; }
 
@@ -165,6 +174,19 @@ namespace WebApplication2.Models
         public int s2 { get; set; }
         public int s3 { get; set; }
         public int s4 { get; set; }
+
+    }
+
+    public class MovieReviewScore
+    {
+        
+        public string ImagePath { get; set; }
+        [Display(Name ="")]
+        public string MovieId { get; set; }
+        [Display(Name = "MovieName")]
+        public string MovieName { get; set; }
+        [Display(Name = "Rating")]
+        public decimal rating { get; set; }
 
     }
 

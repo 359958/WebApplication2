@@ -1,9 +1,11 @@
 ﻿
 body {
-    color: #999;
-    background: #ffffff;
-    font-family: 'Roboto', sans-serif;
-}
+    background: url('../../Content/Image/backdrop3.jpg') no-repeat center center fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    
+}   
 
 .form-control {
     border-color: #eee;

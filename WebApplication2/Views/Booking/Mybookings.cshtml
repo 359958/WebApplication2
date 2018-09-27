@@ -4,18 +4,30 @@
 }
 
 
-<script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
+@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
+@*<script src="~/Scripts/bootstrap.min.js"></script>
+<script src="~/Scripts/bootstrap.js"></script>*@
 <link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <script src="~/Scripts/CommonJs.js"></script>
 
-@*<link href="~/Content/Css/JQDatatable/dataTables.bootstrap.min.css" rel="stylesheet" />
+<link href="~/Content/Css/JQDatatable/dataTables.bootstrap.min.css" rel="stylesheet" />
 <link href="~/Content/Css/JQDatatable/responsive.bootstrap.min.css" rel="stylesheet" />
 
 <script src="~/Scripts/JQdatatable/dataTables.bootstrap4.min.js"></script>
-<script src="~/Scripts/JQdatatable/jquery.dataTables.min.js"></script>*@
+<script src="~/Scripts/JQdatatable/jquery.dataTables.min.js"></script>
 
+<script>
+    $(function () {
+       
+        $('#example').DataTable({
+            "paging": false,
+            "ordering": false,
+            "info": false
+        })
+    });
+</script>
+<h4>My Booking History</h4>
+<hr />
 
 <br />
 <div class="center-block text-center col-lg-12" id="divCentre">

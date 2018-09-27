@@ -1,63 +1,18 @@
-﻿@{
-    ViewBag.Title = "AdminUserPage";
-    Layout = "~/Views/Shared/_Layout.cshtml";
-
-
-
+﻿
+@{
+    ViewBag.Title = "AdminUserPage1";
 }
-@*<link href="https://moviesendpoint.azureedge.net/Content/Css/irctc.css" rel="stylesheet" />*@
-<link href="~/Content/Css/irctc.css" rel="stylesheet" />
-@*<script src="~/Scripts/jquery-3.3.1.min.js"></script>*@
-@*<script src="~/Scripts/bootstrap.min.js"></script>*@
-@*<script src="~/Scripts/bootstrap.js"></script>*@
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
 
-<script src="~/Scripts/CommonJs.js"></script>
+<h2>AdminUserPage1</h2>
 
-
-<script>
-    //var TeamDetailPostBackURL = '/Admin/AdminUserPage';
-    //$(function () {
-
-    //    $(".Adminpage").click(function () {
-
-    //        var $buttonClicked = $(this);
-    //        var id = $buttonClicked.attr('data-id');
-    //        alert(id);
-    //        var options = { "backdrop": "static", keyboard: true };
-    //        $.ajax({
-    //            type: "GET",
-    //            url: TeamDetailPostBackURL,
-    //            contentType: "application/json; charset=utf-8",
-    //            data: { "type": id },
-    //            datatype: "json",
-    //            success: function (data) {
-
-    //                $('#myModalContent').html(data);
-    //                $('#myModal').modal(options);
-    //                $('#myModal').modal('show');
-
-    //            },
-    //            error: function (XHR, errorText, status) {
-    //                console.log(XHR.responseText);
-    //            }
-    //        });
-    //    });
-
-
-
-    //    $("#closbtn").click(function () {
-    //        $('#myModal').modal('hide');
-    //    });
-    //});
-
-</script>
 <body>
-    <div class="responsive"><i class="fa fa-bars"></i></div>
-    
+
+    <link href="https://moviesendpoint.azureedge.net/Content/Css/irctc.css" rel="stylesheet" />
+    <script src="~/Scripts/CommonJs.js"></script>
+
     <div _ngcontent-c9="" class="iconsection">
-        <h4 _ngcontent-c9="">Admin Console<br _ngcontent-c9=""></h4>
-        <ul _ngcontent-c9="">
+        <h2 _ngcontent-c9="">Admin Console<br _ngcontent-c9="">Welcome</h2>
+        <ul _ngcontent-c9="" id="uladmin">
             <li _ngcontent-c9="">
                 <a>
 
@@ -66,13 +21,13 @@
             </li>
             <li _ngcontent-c9="">
                 <span _ngcontent-c9="" class="allcircle circletwo"></span><img src="~/Content/Image/Icons/Seat.png" style="width:50%; height:10%">
-                <label _ngcontent-c9=""><a class="Adminpage" data-id="AddTicket" onclick="Addseat('AddTicket')">Add Seats</a></label>
+                <label _ngcontent-c9=""><a href="javascript:void(0);" class="Adminpage" data-id="AddTicket">Add Seats</a></label>
             </li>
             <li _ngcontent-c9="">
 
                 <span _ngcontent-c9="" class="allcircle circlethree"></span><img src="~/Content/Image/Icons/money.ico" style="width:50%; height:10%">
-                <label _ngcontent-c9=""><a class="Adminpage" data-id="ChangePrice" onclick="Addseat('ChangePrice')">Updat Ticket Price</a></label>
-                 
+                <label _ngcontent-c9=""><a href="javascript:void(0);" class="Adminpage" data-id="ChangePrice">Updat Ticket Price</a></label>
+
             </li>
             <br _ngcontent-c9="" class="none991">
             <li _ngcontent-c9="">

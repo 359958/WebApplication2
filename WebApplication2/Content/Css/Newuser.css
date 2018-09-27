@@ -1,7 +1,7 @@
 ﻿
 /* CSS used here will be applied after bootstrap.css */
 body {
-    background: url('../../Content/Image/reg.jpg') no-repeat center center fixed;
+    background: url('https://moviesendpoint.azureedge.net/Content/Image/backdrop1.jpg') no-repeat center center fixed;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;

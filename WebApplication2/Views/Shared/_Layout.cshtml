@@ -5,41 +5,123 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>New Cinimas</title>
     <link rel="icon" type="image/ico" href="~/Content/Image/Icons/icon.png" />
-    <script src="~/Content/Css/LayoutMenu/bootstrap.min.js"></script>
+
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+    <script src="~/Scripts/modernizr-2.8.3.js"></script>
+
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <link href="~/Content/Css/LayoutMenu/menuintest.css" rel="stylesheet" />
-    @Styles.Render("~/Content/css")
-    @Scripts.Render("~/bundles/modernizr")
+   
 </head>
 <body>
     <header class="header-section">
         <div class="logo">
-            <img src="~/Content/Image/Icons/logo1.png" alt=""><!-- Logo -->
-        </div>
+            <img src="~/Content/Image/Icons/l1.png" alt=""><!-- Logo -->
+            <h3>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; MultiPlex</h3>
+        </div> 
         <!-- Navigation -->
         <div class="responsive"><i class="fa fa-bars"></i></div>
         <nav>
             <ul class="menu-list">
-                <li class="active"><a href="index.html">Home</a></li>
-                <li><a href="services.html">Services</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="contact.html">Contact</a></li>
-                <li><a href="elements.html">Elements</a></li>
+                @if (Session["UserID"].ToString() == "")
+                {
+                    <li class="active"> @Html.ActionLink("Home", "About", "Register")</li>
+                    <li> @Html.ActionLink("Log In", "Login", "Register")</li>
+                }
+                else if (Session["UserID"].ToString() != "Admin")
+                {
+                    <li class="active"> @Html.ActionLink("Home", "About", "Register")</li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("Book Ticket", "Booking", "Booking")}
+                    </li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("My Bookings", "Mybookings", "Booking")}
+                    </li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("Contact Us", "Complient", "Booking")}
+                    </li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("My Profile", "MyProfile", "Register")}
+                    </li>
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("Movie Reviews", "MovieReviw", "Booking")}
+                    </li>
+                    <li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            <a> @Html.Label("HI  " + Session["UserID"].ToString())</a>
+                        }
+
+
+                    </li>
+                    <li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            @Html.ActionLink("Log Out", "LogOut", "Register")
+                        }
+
+
+                    </li>
+                }
+                else if (Session["UserID"].ToString() == "Admin")
+                {
+                    <li>
+                        @if (Request.IsAuthenticated)
+                        {@Html.ActionLink("Admin", "AdminUserPage", "Admin")}
+                    </li>
+                    <li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            <a> @Html.Label("HI  " + Session["UserID"].ToString())</a>
+                        }
+
+
+                    </li>
+                    <li>
+
+                        @if (Request.IsAuthenticated)
+                        {
+
+                            @Html.ActionLink("Log Out", "LogOut", "Register")
+                        }
+
+
+                    </li>
+
+                }
+
             </ul>
         </nav>
     </header>
 
 
     <div class="container body-content">
+        <br />
+        <br />
+        <br />
         @RenderBody()
-        
+
         <footer>
             <hr />
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+            <p>&copy; @DateTime.Now.Year - New Cinimas</p>
         </footer>
     </div>
 
-    @Scripts.Render("~/bundles/jquery")
+    @*@Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
-    @RenderSection("scripts", required: false)
+    @RenderSection("scripts", required: false)*@
 </body>
 </html>

@@ -14,6 +14,7 @@ using Microsoft.WindowsAzure.Storage;
 using Microsoft.WindowsAzure.Storage.Auth;
 using Microsoft.WindowsAzure.Storage.Blob;
 using System.Configuration;
+using Microsoft.WindowsAzure.Storage.Queue;
 
 namespace WebApplication2.Controllers
 {
@@ -39,6 +40,8 @@ namespace WebApplication2.Controllers
 
             return View();
         }
+
+
         /*-----------------------------------*/
 
         /*Add Movie*/
@@ -170,5 +173,54 @@ namespace WebApplication2.Controllers
             return HttpCalls.HttpclientListcall(movobj, "admin", "GetMovieRunning");
         }
         /*---------------------Movie Info---------------------*/
+
+
+        /*--------------------ReviewUpload----------------------------*/
+        [HttpGet]
+        public ActionResult ReviewUpload()
+        {
+            return View();
+        }
+        [HttpPost]
+        public ActionResult ReviewUpload(FormCollection form)
+        {
+            string url = string.Empty;
+            if (Request.Files.Count > 0)
+            {
+                int i = 0;
+                CloudStorageAccount cloudStorageAccount = DropDown.GetConnectionString();
+                CloudBlobClient cloudBlobClient = cloudStorageAccount.CreateCloudBlobClient();
+                CloudBlobContainer cloudBlobContainer = cloudBlobClient.GetContainerReference(ConfigurationManager.AppSettings["ContainerName"]);
+                cloudBlobContainer.CreateIfNotExists();
+                foreach (string files in Request.Files)
+                {
+                    string fileName = Path.GetFileName(Request.Files[i].FileName);
+                    CloudBlockBlob azureBlockBlob = cloudBlobContainer.GetBlockBlobReference(fileName);
+                    azureBlockBlob.UploadFromStream(Request.Files[i].InputStream);
+
+                    i++;
+                }
+                CloudQueueClient queueClient = cloudStorageAccount.CreateCloudQueueClient();
+
+                // Retrieve a reference to a container.
+                CloudQueue queue = queueClient.GetQueueReference("reviewqueuemovie");
+
+                // Create the queue if it doesn't already exist
+                queue.CreateIfNotExists();
+                CloudQueueMessage message = new CloudQueueMessage("Posted");
+                queue.AddMessage(message);
+            }
+            return View();
+        }
+        /*-------------------ReviewUpload-----------------------------*/
+
+
+        /*---------------------Load Review*/
+
+        public ActionResult LoadReview()
+        {
+            return View();
+        }
+        /*---------------------Load Review*/
     }
 }

@@ -6,8 +6,9 @@
 <html>
 <head>
 
-
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
     <link href="~/Content/Css/Login.css" rel="stylesheet" />
+
 </head>
 <body>
     <h4>Login Page</h4>
@@ -74,3 +75,18 @@
 
 </body>
 </html>
+@if (ViewBag.Message != null)
+{
+    <script>
+
+        $(document).ready(function () {
+
+          
+
+            alert('UserName/Password invalid');
+
+        });
+
+    </script>
+
+}

@@ -53,14 +53,16 @@ namespace WebApplication2.Controllers
                 cookies = item.Cemail.ToString();
             }
 
-            if (JsonData.Length > 0)
+            if (UserData.Count() > 0)
             {
 
                 FormsAuthentication.SetAuthCookie(cookies, false);
                 return RedirectToAction("Booking", "Booking");
             }
             else
-            { return View(); }
+            {
+                ViewBag.Message = "UserName/Password invalid";
+                return View(); }
                 
         }
 
@@ -132,15 +134,25 @@ namespace WebApplication2.Controllers
 
         public string UpdateUserDetails(UserData obj)
         {
-            obj.CID = int.Parse("1013");
+
+            obj.CID = int.Parse(Session["CID"].ToString());
 
             return HttpCalls.Httpclientcall(obj, "Register", "UpdateUser");
         }
         public List<UserDetails> updateuserProfile()
         {
-            string userid = "1013"; //Session["CID"].ToString();
+            string userid = Session["CID"].ToString();
             List<UserDetails> editobj = new List<UserDetails>();
             return HttpCalls.HttpclientListcall(editobj, "Register", "GetUserProfile"+ "?cusid="+userid);
+        }
+
+
+        public ActionResult LogOut()
+        {
+            FormsAuthentication.SignOut();
+            Session["UserID"] = "";
+            Session["CID"] = "";
+            return RedirectToAction("About", "Register");
         }
 
     }

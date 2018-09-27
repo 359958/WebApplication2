@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewBag.Title = "LoadReview";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>LoadReview</title>
+</head>
+<body>
+
+    <script src="~/Scripts/jquery-3.3.1.min.js"></script>
+
+
+
+    <!--  jQuery -->
+    <script src="~/Scripts/CommonJs.js"></script>
+
+
+    <!-- Isolated Version of Bootstrap, not needed if your site already uses Bootstrap -->
+    <!-- Bootstrap Date-Picker Plugin -->
+
+    @using (Html.BeginForm())
+    {
+        
+    @Html.AntiForgeryToken()
+
+    <div align="center" class="form-horizontal">
+        <h4>LoadReview</h4>
+
+        <button type="button" id="details" onclick="CallReview('@System.Configuration.ConfigurationManager.AppSettings["WebapiUrl"]');">Enable Review</button>
+    </div>
+}
+
+
+</body>
+</html>

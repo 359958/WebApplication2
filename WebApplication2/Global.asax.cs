@@ -20,8 +20,8 @@ namespace WebApplication2
 
         protected void Session_Start(Object sender, EventArgs e)
         {
-            Session["UserID"] = "Guest";
-            Session["CID"] = "1018";
+            Session["UserID"] = "";
+            Session["CID"] = "";
         }
 
         protected void Session_End(Object sender, EventArgs e)

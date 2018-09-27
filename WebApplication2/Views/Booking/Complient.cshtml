@@ -2,51 +2,67 @@
 @{
     ViewBag.Title = "Complient";
 }
-<link href="~/Content/Css/Complient/Complient.css" rel="stylesheet" />
-<link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />
-<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />
+@*<link href="~/Content/Css/Complient/Complient.css" rel="stylesheet" />*@
+@*<link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />*@
+@*<link href="~/Content/bootstrap.min.css" rel="stylesheet" type="text/css" />*@
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
-<script src="~/Scripts/bootstrap.min.js"></script>
-<script src="~/Scripts/bootstrap.js"></script>
+@*<script src="~/Scripts/bootstrap.min.js"></script>*@
+@*<script src="~/Scripts/bootstrap.js"></script>*@
+@*<link href="~/Content/Css/Home/bootstrap.min.css" rel="stylesheet" />*@
 
+
+<link rel="stylesheet" href="~/Content/Css/Home/bootstrap.min.css" />
+<link rel="stylesheet" href="~/Content/Css/Home/font-awesome.min.css" />
+<link rel="stylesheet" href="~/Content/Css/Home/flaticon.css" />
+<link rel="stylesheet" href="~/Content/Css/Home/magnific-popup.css" />
+<link rel="stylesheet" href="~/Content/Css/Home/owl.carousel.css" />
+<link rel="stylesheet" href="~/Content/Css/Home/style.css" />
 <h4>Complient</h4>
 
+
 <body>
-    @using (Html.BeginForm())
-    {
-        @Html.AntiForgeryToken()
-        <hr />
-        <div class="signup-form">
-            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
-            @*<form action="/examples/actions/confirmation.php" method="post" class="form-horizontal">*@
-            <div class="form-horizontal">
+   <div class="contact-section spad fix">
+		<div class="container">
+			<div class="row">
+				<!-- contact info -->
+				<div class="col-md-5 col-md-offset-1 contact-info col-push">
+					<div class="section-title left">
+						<h2>Contact us</h2>
+					</div>
+					
+					<h3 class="mt60">Main Office</h3>
+					<p class="con-item">C/ Libertad, 34 <br> 05200 Arévalo </p>
+					<p class="con-item">0034 37483 2445 322</p>
+					<p class="con-item">hello@company.com</p>
+				</div>
+				<!-- contact form -->
+                <div class="col-md-6 col-pull">
+                    @using (Html.BeginForm())
+                    {
+                        @Html.AntiForgeryToken()
+                        <div class="row">
 
+                            <div class="col-sm-6">
+                                <div class="form-group">
 
-                <div class="form-group">
-                    
-                    <div class="col-xs-12">
-                        @*@Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.Issue, new { @class = "form-control" })*@
-                        <label>Query type</label>   @Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.IssueList, new { @class = "form-control" })
+                                    <div class="col-xs-12">
+                                        @*@Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.Issue, new { @class = "form-control" })*@
+                                        <label class="control-label col-xs-5">Query</label>  @Html.DropDownList("Issue", (IEnumerable<SelectListItem>)ViewBag.IssueList, new { @class = "form-control" })
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-sm-11">
+
+                                <textarea name="descriptiontext" placeholder="Message" style="margin: 0px 0px 200px; width: 800px; height: 267px;"></textarea>
+                                <button type="submit" class="site-btn">send</button>
+                            </div>
+                        </div>
+                    }
                     </div>
-                </div>
-
-
-                <div class="form-group">
-                    <label class="control-label col-xs-12"></label>
-                    <div class="col-xs-8">
-                        @Html.TextAreaFor(Model => Model.descriptiontext, new { @class = "form-control", columns = 40, rows = 10 })
-                    </div>
-                </div>
-                <div class="form-group  col-xs-12">
-                    <div>
-                        <button type="submit" class="btn btn-primary btn-lg">Submit</button>
-                    </div>
-                </div>
-                @*</form>*@
-            </div>
-            @*<div class="text-center">Already have an account? @Html.ActionLink("Login", "LoginPage", "Register")</div>*@
-        </div>
-    }
+			</div>
+		</div>
+	</div>
+   
 </body>
 
 

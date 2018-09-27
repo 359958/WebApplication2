@@ -84,13 +84,13 @@
                 RunningUpto: row.find(".Date .label").html()
 
             };
-            alert(UpdateMovieData.Movie);
-            alert(UpdateMovieData.RunningUpto);
+            var apiUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebapiUrl"].ToString())';
+            
             if (UpdateMovieData != null) {
-                alert('ij');
+                
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:60683/api/Admin/UpdateMovie",
+                    url: apiUrl+"/Admin/UpdateMovie",
                     data: UpdateMovieData,
                     success: function (data) {
                         alert('Date Updated');
@@ -124,33 +124,25 @@
             var UpdateMovieData = {
                 Movie: row.find(".Movie").find(".label").html(),
             }
+             var apiUrl = '@(System.Configuration.ConfigurationManager.AppSettings["WebapiUrl"].ToString())';
             alert(UpdateMovieData.Movie);
-            if (UpdateMovieData != null) {
-                alert('ij');
+            alert('delete');
+            if (UpdateMovieData.Movie != '') {
+                alert('in');
+                alert(apiUrl);
                 $.ajax({
                     type: "POST",
-                    url: "http://localhost:60683/api/Admin/DeleteMovie",
+                    url: apiUrl+"/Admin/DeleteMovie",
                     data: UpdateMovieData,
                     success: function (data) {
-                        alert('deleted Updated');
+                        alert('Deleted');
                     },
                     error: function (response) {
                         alert('Error');
                     }
                 });
             }
-            //$("td", row).each(function () {
-            //    if ($(this).find(".text").length > 0) {
-            //        var span = $(this).find(".label");
-            //        var input = $(this).find(".text");
-            //        input.val(span.html());
-            //        span.show();
-            //        input.hide();
-            //    }
-            //});
-            //row.find(".Edit").show();
-            //row.find(".Update").hide();
-            //$(this).hide();
+          
         });
     </script>
 </body>

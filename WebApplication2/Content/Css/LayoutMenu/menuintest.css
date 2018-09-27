@@ -187,6 +187,7 @@ ul {
     .site-btn:focus {
         text-decoration: none;
         outline: none;
+        
     }
 
 /*------------------
@@ -317,6 +318,11 @@ ul {
                 background: #2be6ab;
                 color: #6a23b5;
             }
+            /*---lana*/
+            .header-section .menu-list li a:hover {
+                background: #2be6ab;
+                color: #6a23b5;
+            }
 
         .header-section .menu-list .current a:after {
             width: 10px;
@@ -428,7 +434,7 @@ ul {
 .lab-card {
     position: relative;
     margin-top: -50px;
-    padding: 50px 25px;
+    padding: 25px 25px;
     text-align: center;
     background: #f5faf8;
     -webkit-box-shadow: 0 0 8px rgba(74, 74, 74, 0.1);

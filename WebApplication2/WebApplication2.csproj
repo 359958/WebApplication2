@@ -180,7 +180,9 @@
     <Content Include="Content\Css\Home\font-awesome.min.css" />
     <Content Include="Content\Css\Home\Img\01.jpg" />
     <Content Include="Content\Css\Home\Img\02.jpg" />
+    <Content Include="Content\Css\Home\Img\101.jpg" />
     <Content Include="Content\Css\Home\Img\logo.png" />
+    <Content Include="Content\Css\Home\Img\Screen1.jpg" />
     <Content Include="Content\Css\Home\js\bootstrap.min.js" />
     <Content Include="Content\Css\Home\js\circle-progress.min.js" />
     <Content Include="Content\Css\Home\js\jquery-2.1.4.min.js" />
@@ -207,10 +209,17 @@
     <Content Include="Content\Css\StyleSheet1.css" />
     <Content Include="Content\Css\StyleSheet2.css" />
     <Content Include="Content\Image\backdrop.jpg" />
+    <Content Include="Content\Image\backdrop1.jpg" />
+    <Content Include="Content\Image\backdrop3.jpg" />
     <Content Include="Content\Image\icon.png" />
+    <Content Include="Content\Image\Icons\Feed.png" />
     <Content Include="Content\Image\Icons\icon.png" />
+    <Content Include="Content\Image\Icons\l1.png" />
     <Content Include="Content\Image\Icons\logo1.png" />
     <Content Include="Content\Image\Icons\money.ico" />
+    <Content Include="Content\Image\Icons\Movie.png" />
+    <Content Include="Content\Image\Icons\Review.png" />
+    <Content Include="Content\Image\Icons\Seat.png" />
     <Content Include="Content\Image\reg.jpg" />
     <Content Include="favicon.ico" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
@@ -221,6 +230,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <None Include="Properties\PublishProfiles\MovieWebApplicationApp - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MovieWebApplicationAppSer2 - Web Deploy.pubxml" />
+    <None Include="Properties\PublishProfiles\MovieWebApplicationAppSer3 - Web Deploy.pubxml" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\CommonJs.js" />
     <Content Include="Scripts\DatePicker\bootstrap-datepicker.min.js" />
@@ -266,6 +278,13 @@
     <Content Include="Views\Shared\Changeticketprice.cshtml" />
     <Content Include="Views\Admin\ViewFeedback.cshtml" />
     <Content Include="Views\Admin\MovieInfo.cshtml" />
+    <Content Include="Views\Register\LogOut.cshtml" />
+    <Content Include="Views\Booking\MovieReviews.cshtml" />
+    <Content Include="Views\Booking\MovieReviw.cshtml" />
+    <Content Include="Views\Admin\ReviewUpload.cshtml" />
+    <Content Include="Views\Admin\LoadReview.cshtml" />
+    <Content Include="Views\Shared\SeatAvaliblity.cshtml" />
+    <Content Include="Views\Admin\AdminUserPage1.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

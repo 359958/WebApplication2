@@ -3951,29 +3951,13 @@ div.slanted-div:hover .slide-next, div.slanted-div:hover .slide-prev {
     margin: auto
 }
 
-.circleone {
-    background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -756px 0
-}
 
-    .circleone:hover {
-        background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -672px 0
-    }
 
-.circletwo {
-    background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -1260px 0
-}
 
-    .circletwo:hover {
-        background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -1176px 0
-    }
 
-.circlethree {
-    background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -84px 0
-}
 
-    .circlethree:hover {
-        background: url(css-sprite-combined1.38524ae39c804385d6e2.png)
-    }
+
+
 
 .circlefour {
     background: url(css-sprite-combined1.38524ae39c804385d6e2.png) -420px 0
@@ -4024,7 +4008,7 @@ div.slanted-div:hover .slide-next, div.slanted-div:hover .slide-prev {
     }
 
 @media (max-width:1199px) {
-    .iconsection ul li label {
+    .iconsection #uladmin li label {
         display: inline-flex;
         height: 40px;
         align-items: center;
@@ -4087,7 +4071,7 @@ div.slanted-div:hover .slide-next, div.slanted-div:hover .slide-prev {
         left: 2%
     }
 
-    .iconsection ul li {
+    .iconsection #uladmin li {
         width: 130px
     }
 }
@@ -4108,13 +4092,13 @@ div.slanted-div:hover .slide-next, div.slanted-div:hover .slide-prev {
 }
 
 @media (max-width:767px) and (min-width:567px) {
-    .iconsection ul li {
+    .iconsection #uladmin li {
         width: 110px
     }
 }
 
 @media (max-width:576px) {
-    .iconsection ul li {
+    .iconsection #uladmin li {
         width: 72px
     }
 }
@@ -4136,7 +4120,7 @@ div.slanted-div:hover .slide-next, div.slanted-div:hover .slide-prev {
         flex: 100%
     }
 
-    .iconsection ul {
+    .iconsection #uladmin {
         padding: 0
     }
 
@@ -4683,10 +4667,11 @@ hr {
     right: -999em
 }
 
-ul {
+#uladmin {
     list-style-type: none;
     margin: 0;
-    padding: 0
+    padding: 0;
+
 }
 
 .dropdown-content a {
@@ -4837,7 +4822,7 @@ ul {
     margin: 4px 0
 }
 
-.menu ul li {
+.menu #uladmin li {
     padding: 10px;
     border-bottom: 1px solid #d2cdcd;
     text-align: left
@@ -4866,9 +4851,9 @@ nav {
         clear: both
     }
 
-    nav ul {
+    nav #uladmin {
         font-weight: 700;
-        float: left;
+        float: right;
         top: 0;
         padding: 0;
         margin: 0;
@@ -4876,7 +4861,7 @@ nav {
         position: relative
     }
 
-        nav ul li {
+        nav #uladmin li {
             margin: 0;
             display: inline-block;
             float: left;
@@ -4908,7 +4893,7 @@ nav li a:hover {
     color: #fff
 }
 
-nav ul li ul li:hover {
+nav #uladmin li #uladmin li:hover {
     background-color: #eee;
     background: rgba(0,9,49,.74)
 }
@@ -4917,7 +4902,7 @@ nav a:hover {
     text-decoration: none
 }
 
-nav ul ul {
+nav #uladmin #uladmin {
     display: none;
     position: absolute;
     top: 100%
@@ -4936,11 +4921,11 @@ nav ul ul {
         background: #eaf5ff
     }
 
-nav ul li:hover > ul {
+nav #uladmin li:hover > #uladmin {
     display: inherit
 }
 
-nav ul ul li {
+nav #uladmin #uladmin li {
     min-width: 220px;
     max-width: 270px;
     float: none;
@@ -4949,7 +4934,7 @@ nav ul ul li {
     padding: 0 10px 0 0
 }
 
-nav ul ul ul li {
+nav #uladmin #uladmin #uladmin li {
     background-color: #fff;
     position: relative;
     top: -46px;
@@ -5033,7 +5018,7 @@ nav ul ul ul li {
         color: #333
     }
 
-    [id^=drop]:checked + ul {
+    [id^=drop]:checked + #uladmin {
         display: block
     }
 
@@ -5042,46 +5027,46 @@ nav ul ul ul li {
         width: 100%
     }
 
-    nav ul ul .toggle, nav ul ul a {
+    nav ul ul .toggle, nav #uladmin #uladmin a {
         padding: 0 40px
     }
 
-    nav a:hover, nav ul ul ul a {
+    nav a:hover, nav #uladmin #uladmin #uladmin a {
         background-color: transparent
     }
 
-    nav ul li ul li .toggle, nav ul ul a, nav ul ul ul a {
+    nav #uladmin li #uladmin li .toggle, nav #uladmin #uladmin a, nav #uladmin #uladmin #uladmin a {
         padding: 0 10px;
         color: #000;
         font-size: 1.2rem
     }
 
-    nav ul li ul li .toggle, nav ul ul a {
+    nav #uladmin li ul li .toggle, nav #uladmin #uladmin a {
         border-bottom: none;
         background-color: transparent
     }
 
-    nav ul ul {
+    nav #uladmin #uladmin {
         float: none;
         position: static;
         color: #000
     }
 
-        nav ul li:focus > ul, nav ul li:hover > ul, nav ul ul li:focus > ul, nav ul ul li:hover > ul {
-            display: none
-        }
+    nav #uladmin li:focus > ul, nav ul li:hover > ul, nav ul ul li:focus > ul, nav ul ul li:hover > ul {
+        display: none
+    }
 
-    a:hover, nav ul li a:focus {
+    a:hover, nav #uladmin li a:focus {
         color: #1756a7
     }
 
-    nav ul ul li {
+    nav #uladmin #uladmin li {
         display: block;
         width: 100%;
         color: #fff
     }
 
-    nav ul ul ul li {
+    nav #uladmin #uladmin #uladmin li {
         position: static
     }
 

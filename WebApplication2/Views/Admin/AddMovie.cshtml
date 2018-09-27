@@ -6,17 +6,18 @@
 <html>
 <head>
 
-    <link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />
+
     <script src="~/Scripts/DatePicker/jquery.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-    <script src="~/Scripts/bootstrap.js"></script>
+    @*<script src="~/Scripts/bootstrap.min.js"></script>*@
+    @*<script src="~/Scripts/bootstrap.js"></script>*@
     <script src="~/Scripts/DatePicker/bootstrap-datepicker.min.js"></script>
     <link href="~/Content/Css/DatePicker/bootstrap-datepicker3.css" rel="stylesheet" />
-
+    <link href="~/Content/Css/Complient/bootstrap.min.book.css" rel="stylesheet" />
     <link href="~/Content/Css/AddMovie.css" rel="stylesheet" />
+    <script src="~/Scripts/CommonJs.js"></script>
     <script>
         $(document).ready(function () {
-            alert();
+            
             DatePicker();
 
             function DatePicker() {
@@ -33,8 +34,8 @@
                 };
                 date_input.datepicker(options);
             }
-           
-         
+
+
         });
 
 
@@ -90,13 +91,13 @@
                 </div>
                 <div>
                     <label for="file" class="control-label col-xs-4">Upload Image:</label>
-                    <input type="file" name="UploadedFile" class="control-label col-xs-4" id="file" style="width: 100%;" />
+                    <input type="file" id ="path" name="UploadedFile" class="control-label col-xs-4" id="file" style="width: 100%;" />
 
                 </div>
                 <div class="form-group">
                     <div class="col-xs-8 col-xs-offset-4">
 
-                        <button type="submit" class="btn btn-primary btn-sm">Submit</button>   <button type="submit" class="btn btn-primary btn-sm">Clear</button>
+                        <button type="submit" id ="addMovieAdmin" class="btn btn-primary btn-sm">Submit</button>   <button type="submit" class="btn btn-primary btn-sm">Clear</button>
                     </div>
 
                 </div>

@@ -1,0 +1,38 @@
+﻿@model IEnumerable<WebApplication2.Models.MovieReviewScore>
+
+@{
+    ViewBag.Title = "MovieReview";
+}
+
+<h4>MovieReviw</h4>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieId)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MovieName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.rating)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@item.ImagePath" style="height:50%;width:20%"/>
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MovieName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.rating)
+        </td>
+        
+    </tr>
+}
+
+</table>
